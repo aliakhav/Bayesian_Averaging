@@ -1,0 +1,26 @@
+#!/bin/sh
+#SBATCH --partition=general-compute
+#SBATCH --time=12:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=12
+#SBATCH --constraint=CPU-E5645
+##SBATCH --mem=23000
+# Memory per node specification is in MB. It is optional. 
+# The default limit is 3000MB per core.
+#SBATCH --job-name="C_LHS55555"
+#SBATCH --output=C_LHS55555-srun.out
+#SBATCH --mail-user=aliakhav@buffalo.edu
+#SBATCH --mail-type=ALL
+##SBATCH --requeue
+##Specifies that the job will be requeued after a node failure.
+##The default is that the job will not be requeued.
+
+#The PMI library is necessary for srun
+##export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+##module load intel-mpi
+export PYTHONHOME=/projects/academic/gmfg/abevilac/dependencies/anaconda2
+export LD_LIBRARY_PATH=/projects/academic/gmfg/abevilac/dependencies/hdf5/lib:/projects/academic/gmfg/abevilac/dependencies/anaconda2/lib
+module list
+
+../../../../titan2d_bld/gccoptomp/bin/titan -nt 12 input_Coulomb.py 
+
