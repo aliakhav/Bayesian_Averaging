@@ -74,4 +74,4 @@ def LHS_TITAN(num_sample,min1,range1,min2,range2):
         fpp.flush()
         fpp.close      
 
-LHS_TITAN(256,0.5,0.9,300.0,3700.0)
+LHS_TITAN(256,0.5,0.4,300.0,3700.0)
