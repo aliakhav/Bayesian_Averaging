@@ -1,4 +1,4 @@
-function CreateSurf(XX,x_in,x_span,YY,y_in,y_span,outP,X,Y)
+function CS(XX,YY,outP,X,Y)
 
 
 x=length(XX);
@@ -16,9 +16,6 @@ for i = 1:x
         H(j,i)=output.preds.ypreds;
     end
 end
-
-XX = x_in + XX * x_span;
-YY = y_in + YY * y_span;
 
 save('Coulomb','XX','YY','G','H');
 
