@@ -74,4 +74,7 @@ def LHS_TITAN(num_sample,min1,range1,min2,range2):
         fpp.flush()
         fpp.close      
 
-LHS_TITAN(256,0.5,0.4,300.0,3700.0)
+    #writing the LHS design points to a .csv     
+    np.savetxt('Design_Points.csv', lhs, delimiter=',')
+
+LHS_TITAN(256,0.5,0.2,300.0,2700.0)
