@@ -14,7 +14,7 @@ int main() {
 	N = 256;
 	double DI[N][2];
 
-	for (NS = 1; NS < N+1; NS++)
+	for (NS = 0; NS < N; NS++)
 	{
 		char filename[50];
 		sprintf(filename, "pileheightrecord%d", NS);
@@ -185,10 +185,10 @@ int main() {
 		symm_diff *= cell_Ar;
 		intersect *= cell_Ar;
 
-		DI[NS-1][1] = symm_diff/count_fd;
-		DI[NS-1][2] = intersect/count_fd;
+		DI[NS-1][0] = symm_diff/count_fd;
+		DI[NS-1][1] = intersect/count_fd;
 
-		printf("%f,%f,%f\n", DI[NS-1][1], DI[NS-1][2], DI[NS-1][1]/DI[NS-1][2]);
+		printf("%f,%f,%f\n", DI[NS][0], DI[NS][1], DI[NS][0]/DI[NS][1]);
 
 ////////////////////////////////////////////////
 		for (int i = 0; i < Ny; ++i)
@@ -204,9 +204,9 @@ int main() {
 		delete[] YX;
 	}
 
-	FILE* DF = fopen("Diff.csv", "w");
+	FILE* DF = fopen("Diff_C.csv", "w");
 	for (int ii = 0; ii < N; ii++)
-		fprintf(DF,"%f,%f,%f\n", DI[ii][1], DI[ii][2], DI[ii][1]/DI[ii][2]);
+		fprintf(DF,"%f,%f,%f\n", DI[ii][0], DI[ii][1], DI[ii][0]/DI[ii][1]);
 
 	fclose(DF);
 

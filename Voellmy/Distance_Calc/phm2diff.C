@@ -206,7 +206,7 @@ int main() {
 
 	FILE* DF = fopen("Diff_V.csv", "w");
 	for (int ii = 0; ii < N; ii++)
-		fprintf(DF,"%f,%f,%f\n", DI[ii][1], DI[ii][2], DI[ii][1]/DI[ii][2]);
+		fprintf(DF,"%f,%f,%f\n", DI[ii][0], DI[ii][1], DI[ii][0]/DI[ii][1]);
 
 	fclose(DF);
 
